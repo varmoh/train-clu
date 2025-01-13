@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: training-app
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.trainclu.registry }}/{{ .Values.image.trainclu.repository }}:{{ .Values.image.trainclu.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 3000
