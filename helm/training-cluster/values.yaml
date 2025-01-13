@@ -1,0 +1,48 @@
+replicaCount: 1
+
+image:
+  repository: 
+  tag: 
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+config:
+  content: |
+  {
+      "namespace-1": {
+        "s3_bucket": "bucket-for-namespace-1",
+        "access_key": "access-key-namespace-1",
+        "secret_key": "secret-key-namespace-1"
+      },
+      "namespace-2": {
+        "s3_bucket": "bucket-for-namespace-2",
+        "access_key": "access-key-namespace-2",
+        "secret_key": "secret-key-namespace-2"
+      },
+      "namespace-3": {
+        "s3_bucket": "bucket-for-namespace-3",
+        "access_key": "access-key-namespace-3",
+        "secret_key": "secret-key-namespace-3"
+      },
+      "namespace-4": {
+        "s3_bucket": "bucket-for-namespace-4",
+        "access_key": "access-key-namespace-4",
+        "secret_key": "secret-key-namespace-4"
+      },
+      "namespace-5": {
+        "s3_bucket": "bucket-for-namespace-5",
+        "access_key": "access-key-namespace-5",
+        "secret_key": "secret-key-namespace-5"
+      }
+    }
