@@ -1,2 +1,2 @@
-# train-clu
-Training-cluster testing
+# Training Cluster
+The schema and flow of stand alne training cluster
