@@ -1,30 +1,20 @@
 # Training Cluster
-The schema and flow of stand alne training cluster
+The schema and flow of standalone training cluster
 
 #### Notes
 Database map
-+----------------------------+-------------------+
-| Mapping to Client Cluster                     |
-+----------------------------+-------------------+
-| Shared Statuses:                               |
-+----------------------------+-------------------+
-| Training Cluster event_type | Client Cluster   |
-|                            | state             |
-+----------------------------+-------------------+
-| training                   | IN_PROGRESS       |
-| training_successful        | READY             |
-| training_failed            | FAILED            |
-+----------------------------+-------------------+
 
-+---------------------------------+-------------------+
-| Internal (Not Mapped):                              |
-+---------------------------------+-------------------+
-| Training Cluster event_type     | Client Cluster    |
-|                                 | state             |
-+---------------------------------+-------------------+
-| in_queue                        | (Not reflected)   |
-| model_in_transfer               | (Not reflected)   |
-+---------------------------------+-------------------+
+### Shared Statuses Mapping to Client Cluster
+| Training Cluster event_type | Client Cluster state |
+|-----------------------------|----------------------|
+| training                    | IN_PROGRESS          |
+| training_successful         | READY                |
+| training_failed             | FAILED               |
 
-Callbacks will only send the shared statuses 
-(IN_PROGRESS, READY, FAILED) as per the client’s expectations.
+### Internal (Not Mapped)
+| Training Cluster event_type | Client Cluster state |
+|-----------------------------|----------------------|
+| in_queue                    | (Not reflected)      |
+| model_in_transfer           | (Not reflected)      |
+
+Callbacks will only send the shared statuses (IN_PROGRESS, READY, FAILED) as per the client’s expectations.
